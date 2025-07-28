@@ -374,10 +374,9 @@ def display_example_queries():
     
     examples = [
         "What are the top 5 suppliers by PO quantity?",
-        "Show me all shipments from January",
+        "Show me total shipped quantity of month January",
         "Which buyer has the highest shipped quantity?",
-        "What's the total quantity for each style?",
-        "Show me orders where shipped quantity is less than PO quantity"
+        "What is total booked value in USD?"
     ]
     
     cols = st.columns(2)
