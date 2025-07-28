@@ -1,0 +1,12 @@
+langchain
+langchain_core
+langchain_openai
+langchain_community
+langchain_community[all]
+
+pandas 
+pandasql
+streamlit
+python-dotenv
+pydantic
+datetime
