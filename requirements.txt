@@ -10,3 +10,9 @@ streamlit
 python-dotenv
 pydantic
 datetime
+
+openpyxl
+
+matplotlib 
+seaborn 
+plotly
