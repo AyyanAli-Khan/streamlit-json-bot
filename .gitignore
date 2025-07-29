@@ -2,3 +2,8 @@
 *venv
 venv
 database.json
+oih_database.json
+charts.py
+checking.ipynb
+oih_chatbot.py
+reports.py
