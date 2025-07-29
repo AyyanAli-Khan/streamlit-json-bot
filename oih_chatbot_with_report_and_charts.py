@@ -126,7 +126,7 @@ Table Information:
 - Sample data (first 3 rows): {sample_data}
 
 Generate a **SQLite-compatible SQL query** that answers the user's question.
-- Use tolerance column for date it is our main date.
+- Use ShippedDate column for date it is our main date.
 - Use proper SQL syntax for pandasql
 - Handle case-insensitive searches when appropriate
 - Use proper aggregations and grouping
