@@ -29,7 +29,7 @@ logger = logging.getLogger(__name__)
 # Global variables for data management
 DATA_FILE = "oih_database.json"
 API_URL = os.getenv("OIH_API_KEY")
-UPDATE_INTERVAL = 20 * 60  # 20 minutes in seconds
+UPDATE_INTERVAL = 20 * 60  # 20 hour in seconds
 
 # Configuration for large dataset handling
 CONFIG = {
@@ -126,11 +126,14 @@ Table Information:
 - Sample data (first 3 rows): {sample_data}
 
 Generate a **SQLite-compatible SQL query** that answers the user's question.
-- Use ShippedDate column for date it is our main date.
-- Use proper SQL syntax for pandasql
-- Handle case-insensitive searches when appropriate
-- Use proper aggregations and grouping
-- Return only the SQL query, no explanation
+- Use Tolerance column for date it is our main date, and second main date is ShippedDate but only use when user ask about shippedvalue or total shipped value.
+- Whenever user ask total turnover, so you have to sum 'InHandValue' and 'ShippedValueInUSD'.
+- Use proper SQL syntax for pandasql.
+- Show the name of months like "January" instead of months number like 1.
+- Handle case-insensitive searches when appropriate.
+- Use proper aggregations and grouping.
+- Return only the SQL query, no explanation.
+
 
 User question: {user_input}
 SQL query:"""
@@ -160,6 +163,8 @@ Analyze the user's question and query result to determine if a chart should be g
 User question: {user_input}
 Query result columns: {columns}
 Data sample: {result}
+
+For date always use "Tolerance" column and show the name of months like "January" instead of months number like 1 in charts ot graph and strictly follow this instruction.
 
 Based on the user's question, determine:
 1. Should a chart be generated? (yes/no)
@@ -423,7 +428,7 @@ def execute_query(sql_query, df):
         return None, str(e)
 
 
-#? __________________________________________ MAIN _________________________
+#? ______________________________________________ MAIN __________________________________
 # def generate_oih_report_data(df):
 #     """Generate OIH report data using pandas DataFrame manipulation"""
 #     try:
